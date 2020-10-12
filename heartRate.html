@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Rate</title>
+    <header>Target heart rate </header>
+</head>
+<body>
+    <div>
+        <label for="age">Enter your age: </label>
+        <input type="text" id="yourAge" value="age">
+
+    </div>
+    <div class="calcTargetHeartRate">
+        <button onclick="calcHRate()">Calculate Target Heart Rate</button>
+    </div>
+
+    <p id="result">Your current heart rate is: </p>
+
+    <style>
+        body{
+            background-color: #bff8c0;
+        }
+        .calcTargetHeartRate{
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+
+        }
+    </style>
+    
+
+    <script>
+         function calcHRate(){
+            let x = document.getElementById("yourAge").value;
+            var maxHR = (220 - x);
+            var minTHR = maxHR * .5 // might have to float this, decimal 
+            var maxTHR = maxHR * .85 // might have to float this too because of the decimal 
+
+             document.getElementById("result").innerHTML = minTHR.toFixed(0) + " to " + maxTHR.toFixed(0) + " beats per minute "
+             
+            //DEBUG
+            console.log("Max Heart Rate = ", maxHR);
+            console.log("min target heart rate = ", minTHR);
+            console.log("max target heart rate = ", maxTHR);
+         }
+    </script>
+
+    
+</body>
+</html>
